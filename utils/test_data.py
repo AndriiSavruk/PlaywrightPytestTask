@@ -16,3 +16,6 @@ class Data:
     city = 'Billings'
     zipcode = '59101'
     mobile = '+012345678909'
+    correctname = 'test'
+    correctemail = 'test@sample.com'
+    correctpassword = 'test'
