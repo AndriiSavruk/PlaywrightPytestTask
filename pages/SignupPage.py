@@ -4,24 +4,25 @@ class SignupPage:
         self.page = page
         self.enter_account_information_title = page.get_by_text('Enter Account Information')
         self.mr_title = page.get_by_label('Mr.')
-        self.name_field = page.locator('#name')
-        self.email_field = page.locator('#email')
-        self.password_field = page.locator('#password')
-        self.day_birth = page.locator('#days')
-        self.month_birth = page.locator('#months')
-        self.year_birth = page.locator('#years')
-        self.news_letter_checkbox = page.locator('#newsletter')
-        self.special_offers_checkbox = page.locator('#optin')
-        self.first_name_field = page.locator('#first_name')
-        self.last_name_field = page.locator('#last_name')
-        self.company_field = page.locator('#company')
-        self.first_address_field = page.locator('#address1')
-        self.second_address_field = page.locator('#address2')
-        self.country_field = page.locator('#country')
-        self.state_field = page.locator('#state')
-        self.city_field = page.locator('#city')
-        self.zipcode_field = page.locator('#zipcode')
-        self.mobile_number_field = page.locator('#mobile_number')
+        self.name_field = page.locator('//*[@id="name"]')
+        self.email_field = page.locator('//*[@id="email"]')
+        self.password_field = page.locator('//*[@id="password"]')
+        self.day_birth = page.locator('//*[@id="days"]')
+        self.month_birth = page.locator('//*[@id="months"]')
+        self.year_birth = page.locator('//*[@id="years"]')
+        self.news_letter_checkbox = page.locator('//*[@id="newsletter"]')
+        self.special_offers_checkbox = page.locator('//*[@id="optin"]')
+        self.first_name_field = page.locator('//*[@id="first_name"]')
+        self.last_name_field = page.locator('//*[@id="last_name"]')
+        self.company_field = page.locator('//*[@id="company"]')
+        self.first_address_field = page.locator('//*[@id="address1"]')
+        self.second_address_field = page.locator('//*[@id="address2"]')
+        self.country_field = page.locator('//*[@id="country"]')
+        self.state_field = page.locator('//*[@id="state"]')
+        self.city_field = page.locator('//*[@id="city"]')
+        self.zipcode_field = page.locator('//*[@id="zipcode"]')
+        self.mobile_number_field = page.locator('//*[@id="mobile_number"]')
+        self.create_account_btn = page.get_by_text('Create Account')
 
     def check_mr_title(self):
         self.mr_title.check()
@@ -36,13 +37,13 @@ class SignupPage:
         self.password_field.fill(text)
 
     def select_day_birth(self, text):
-        self.day_birth.select(text)
+        self.day_birth.select_option(text)
 
     def select_month_birth(self, text):
-        self.month_birth.select(text)
+        self.month_birth.select_option(text)
 
     def select_year_birth(self, text):
-        self.year_birth.select(text)
+        self.year_birth.select_option(text)
 
     def check_news_letter_checkbox(self):
         self.news_letter_checkbox.check()
@@ -66,7 +67,7 @@ class SignupPage:
         self.second_address_field.fill(text)
 
     def select_country(self, text):
-        self.country_field.select(text)
+        self.country_field.select_option(text)
 
     def fill_state_field(self, text):
         self.state_field.fill(text)
@@ -80,4 +81,6 @@ class SignupPage:
     def fill_mobile_number_field(self, text):
         self.mobile_number_field.fill(text)
 
+    def click_create_account_btn(self):
+        self.create_account_btn.click()
 

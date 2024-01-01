@@ -1,7 +1,7 @@
 class Data:
 
-    name = 'Tester1234'
-    email = 'tester1234@sample.com'
+    name = 'Tester12345'
+    email = 'tester12345@sample.com'
     password = 'secretpassword'
     birthday = '1'
     birthmonth = 'January'
