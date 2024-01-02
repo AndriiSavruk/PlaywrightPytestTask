@@ -314,6 +314,54 @@ def test_verify_all_products_and_product_detail_page(page: Page):
     expect(first_product_detail_page.product_condition).to_be_visible()
     expect(first_product_detail_page.product_brand).to_be_visible()
 
+def test_search_product(page: Page):
+    main_page = MainPage(page)
+    products_page = ProductsPage(page)
+
+    main_page.navigate()
+
+    # Verify that home page is visible successfully.
+    expect(page).to_have_title(re.compile("Automation Exercise"))
+
+    # Click on 'Products' button
+    main_page.click_products_btn()
+
+    # Verify user is navigated to ALL PRODUCTS page successfully
+    expect(page).to_have_url('https://automationexercise.com/products')
+
+    # Enter product name in search input and click search button
+    products_page.fill_search_product_field(Data.product)
+    products_page.click_search_product_btn()
+
+    # Verify 'SEARCHED PRODUCTS' is visible
+    expect(products_page.searched_products_title).to_be_visible()
+
+    # Verify all the products related to search are visible
+    expect(products_page.stylish_dress_image).to_be_visible()
+
+def test_verify_subscription_in_home_page(page: Page):
+    main_page = MainPage(page)
+
+    main_page.navigate()
+
+    # Verify that home page is visible successfully.
+    expect(page).to_have_title(re.compile("Automation Exercise"))
+
+    # Scroll down to footer
+    main_page.footer.scroll_into_view_if_needed()
+
+    # Verify text 'SUBSCRIPTION'
+    expect(main_page.subscription_title).to_be_visible()
+
+    # Enter email address in input and click arrow button
+    main_page.fill_email_address_field(Data.correctemail)
+    main_page.click_subscribe_btn()
+
+    # Verify success message 'You have been successfully subscribed!' is visible
+    expect(main_page.success_subscribe_message).to_be_visible()
+
+
+
 
 
 

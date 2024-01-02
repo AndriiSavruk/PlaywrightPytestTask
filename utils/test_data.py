@@ -19,3 +19,4 @@ class Data:
     correctname = 'test'
     correctemail = 'test@sample.com'
     correctpassword = 'test'
+    product = 'Stylish Dress'
