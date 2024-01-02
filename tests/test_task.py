@@ -7,6 +7,8 @@ from pages.SignupPage import SignupPage
 from pages.AccountCreatedPage import AccountCreatedPage
 from pages.DeleteAccountPage import DeleteAccountPage
 from pages.ContactUsPage import ContactUsPage
+from pages.ProductsPage import ProductsPage
+from pages.FirstProductDetailPage import FirstProductDetailPage
 
 
 def test_register_user(page: Page):
@@ -264,6 +266,56 @@ def test_contact_us_form(page: Page):
     #  Click 'Home' button and verify that landed to home page successfully
     contact_us_page.click_home_link()
     expect(page).to_have_url('https://automationexercise.com/')
+
+def test_verify_test_cases_page(page: Page):
+    main_page = MainPage(page)
+
+    main_page.navigate()
+
+    # Verify that home page is visible successfully.
+    expect(page).to_have_title(re.compile("Automation Exercise"))
+
+    # Click on 'Test Cases' button
+    main_page.click_test_cases_btn()
+
+    # Verify user is navigated to test cases page successfully
+    expect(page).to_have_url('https://automationexercise.com/test_cases')
+
+def test_verify_all_products_and_product_detail_page(page: Page):
+    main_page = MainPage(page)
+    products_page = ProductsPage(page)
+    first_product_detail_page = FirstProductDetailPage(page)
+
+    main_page.navigate()
+
+    # Verify that home page is visible successfully.
+    expect(page).to_have_title(re.compile("Automation Exercise"))
+
+    # Click on 'Products' button
+    main_page.click_products_btn()
+
+    # Verify user is navigated to ALL PRODUCTS page successfully
+    expect(page).to_have_url('https://automationexercise.com/products')
+
+    # The products list is visible
+    expect(products_page.products_list).to_be_visible()
+
+    # Click on 'View Product' of first product
+    products_page.click_first_product_view_product_btn()
+
+    # User is landed to product detail page
+    expect(page).to_have_url('https://automationexercise.com/product_details/1')
+
+    # Verify that detail is visible: product name, category, price, availability, condition, brand
+    expect(first_product_detail_page.product_name).to_be_visible()
+    expect(first_product_detail_page.product_category).to_be_visible()
+    expect(first_product_detail_page.product_price).to_be_visible()
+    expect(first_product_detail_page.product_availability).to_be_visible()
+    expect(first_product_detail_page.product_condition).to_be_visible()
+    expect(first_product_detail_page.product_brand).to_be_visible()
+
+
+
 
 
 
