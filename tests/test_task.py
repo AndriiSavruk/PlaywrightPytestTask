@@ -2,7 +2,7 @@ import re
 from playwright.sync_api import Page, expect
 from pages.MainPage import MainPage
 from pages.LoginPage import LoginPage
-from utils.test_data import Data
+from data.test_data import Data
 from pages.SignupPage import SignupPage
 from pages.AccountCreatedPage import AccountCreatedPage
 from pages.DeleteAccountPage import DeleteAccountPage
