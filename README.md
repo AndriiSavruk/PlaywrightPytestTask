@@ -2,7 +2,7 @@
 # Summary of repo # PlaywrightPytestTask:
 
 Test core repo created to demonstrate the usage of Playwright+Pytest testing framework. Framework displays how to test different UI elements and scenarios utilising https://www.automationexercise.com/ as a testing sand box.
-Framework utilises functionality of the Allure reporter.
+Framework utilises functionality of the Allure reporter. Also, there is an integrated Slack notification when GitHub Actions run.
 
 # System requirements:
 

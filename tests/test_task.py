@@ -17,7 +17,7 @@ def test_register_user(page: Page):
     signup_page = SignupPage(page)
     account_created_page = AccountCreatedPage(page)
     delete_account_page = DeleteAccountPage(page)
-# hello
+
     main_page.navigate()
 
     # Verify that home page is visible successfully.
