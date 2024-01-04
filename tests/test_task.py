@@ -10,7 +10,6 @@ from pages.ContactUsPage import ContactUsPage
 from pages.ProductsPage import ProductsPage
 from pages.FirstProductDetailPage import FirstProductDetailPage
 
-
 def test_register_user(page: Page):
     main_page = MainPage(page)
     login_page = LoginPage(page)
